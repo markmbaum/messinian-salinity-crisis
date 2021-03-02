@@ -1,0 +1,377 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>msc_gcv &#8212; msc_gcv 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">msc_gcv 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><cite>msc_gcv</cite></a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-msc_gcv">
+<span id="msc-gcv"></span><h1><cite>msc_gcv</cite><a class="headerlink" href="#module-msc_gcv" title="Permalink to this headline">¶</a></h1>
+<p>This is the brief documentation for the brief python package <cite>msc_gcv</cite>. It’s the simplified, consolidated, Python implementation of a prior Messinian Salinity Crisis model:</p>
+<p><a class="reference external" href="http://www.nature.com/articles/nature10651">Garcia-Castellanos, D. &amp; Villaseñor, A. Messinian salinity crisis regulated by competing tectonics and erosion at the Gibraltar arc. Nature 480, 359–363 (2011)</a></p>
+<p>The C++ implementation of the model is in the <cite>model/c++</cite> directory.</p>
+<p>To make the model available, the folder containing the package must be in your Python path. The simplest way to achieve this is by appending the proper path to your <cite>sys.path</cite>. For example, if the package is on your computer at the path <cite>/Users/me/model/python</cite>, you simply have to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/Users/me/model/python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and you should then be able to run <cite>from msc_gcv import *</cite></p>
+<p>Then, to run the model,</p>
+<ol class="arabic simple">
+<li><p>construct a <a class="reference internal" href="#msc_gcv.Param" title="msc_gcv.Param"><code class="xref py py-class docutils literal notranslate"><span class="pre">Param</span></code></a> object</p></li>
+<li><p>modify any of the parameters, which are attributes of the <a class="reference internal" href="#msc_gcv.Param" title="msc_gcv.Param"><code class="xref py py-class docutils literal notranslate"><span class="pre">Param</span></code></a> object</p></li>
+<li><p>integrate the system using the <a class="reference internal" href="#msc_gcv.trajectory" title="msc_gcv.trajectory"><code class="xref py py-func docutils literal notranslate"><span class="pre">trajectory()</span></code></a> function</p></li>
+<li><p>plot the results with the <a class="reference internal" href="#msc_gcv.plot" title="msc_gcv.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a> or <a class="reference internal" href="#msc_gcv.plot_phase" title="msc_gcv.plot_phase"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_phase()</span></code></a> functions</p></li>
+</ol>
+<p>For example, the following six lines of code will use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">scipy.solve_ivp</a>’s <cite>LSODA</cite> wrapper to integrate the model with default parameter values and <span class="math notranslate nohighlight">\(a=1.75\)</span> for 100 kyr and produce the plot below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">msc_gcv</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Param</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.75</span>
+<span class="n">traj</span> <span class="o">=</span> <span class="n">trajectory</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/trajectory.png" src="_images/trajectory.png" />
+<p>Or, in the simplest demonstration, a simulation with parameters left at the default reference values can be run and plotted with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">msc_gcv</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="n">Param</span><span class="p">())</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>All the classes and functions in the model are documented below!</p>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="physical-constants">
+<h1>Physical Constants<a class="headerlink" href="#physical-constants" title="Permalink to this headline">¶</a></h1>
+<dl class="py data">
+<dt>
+<code class="sig-name descname">yrsec = 31557600.0</code></dt>
+<dd><p>seconds in a year</p>
+</dd></dl>
+
+<dl class="py data">
+<dt>
+<code class="sig-name descname">kyrsec = 31557600000.0</code></dt>
+<dd><p>seconds in 1000 years</p>
+</dd></dl>
+
+<dl class="py data">
+<dt>
+<code class="sig-name descname">mmyr = 31557600000.0</code></dt>
+<dd><p>convert m/s to mm/yr</p>
+</dd></dl>
+
+<dl class="py data">
+<dt>
+<code class="sig-name descname">ρ = 1e3</code></dt>
+<dd><p>density of water [kg/m^3]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt>
+<code class="sig-name descname">g = 9.8</code></dt>
+<dd><p>gravitational acceleration [m/s^2]</p>
+</dd></dl>
+
+</div>
+<div class="section" id="parameter-class">
+<h1>Parameter Class<a class="headerlink" href="#parameter-class" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="msc_gcv.Param">
+<em class="property">class </em><code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">Param</code><a class="headerlink" href="#msc_gcv.Param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Container for parameter values that can be accessed like an object or like a dictionary, just for convenience. Constructor takes no arguments. Parameters have consistent units with meters and seconds. Initialized with reference values (run <cite>print(Param())</cite> to see default values). Parameters/attributes are:</p>
+<ol class="arabic simple">
+<li><p><cite>kb</cite>, erodability constant [m/s/Pa^a]</p></li>
+<li><p><cite>tauc</cite>, critical shear stress [Pa]</p></li>
+<li><p><cite>Cw</cite>, constant for Turowski channel width formula [?]</p></li>
+<li><p><cite>U</cite>, sill uplift rate [m/s]</p></li>
+<li><p><cite>a</cite>, erosion exponent [-]</p></li>
+<li><p><cite>L</cite>, stream length for slope [m]</p></li>
+<li><p><cite>n</cite>, roughness coefficient [s/m^(1/3)]</p></li>
+<li><p><cite>P</cite>, precipitation rate [m/s]</p></li>
+<li><p><cite>E</cite>, evaporation rate [m/s]</p></li>
+<li><p><cite>R</cite>, stream discharge rate (excluding sill/strait) [m^3/s]</p></li>
+</ol>
+</dd></dl>
+
+</div>
+<div class="section" id="model-functions-equations">
+<h1>Model Functions/Equations<a class="headerlink" href="#model-functions-equations" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="msc_gcv.fAm">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">fAm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.fAm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mediterranean area as a function of water level. Curve was fit to digitized version of Figure 2 in:</p>
+<ul class="simple">
+<li><p>Meijer, P. &amp; Krijgsman, W. A quantitative analysis of the desiccation and re-filling of the Mediterranean during the Messinian Salinity Crisis. Earth and Planetary Science Letters 240, 510–520 (2005).</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>float</strong> (<em>zm</em>) – level of Mediterranean Sea [m]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>surface area of Mediterranean Sea [m <span class="math notranslate nohighlight">\(^2\)</span>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.fzo">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">fzo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.fzo" title="Permalink to this definition">¶</a></dt>
+<dd><p>World ocean level, assuming change in Mediterranean level is wholly compensated by change in world ocean level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>float</strong> (<em>zm</em>) – level of Mediterranean [m]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>level of world ocean [m]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.fT">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">fT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kb</span></em>, <em class="sig-param"><span class="n">tauc</span></em>, <em class="sig-param"><span class="n">Cw</span></em>, <em class="sig-param"><span class="n">U</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.fT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes a convenience number from a bundle of parameters in the channel width formula</p>
+<p><span class="math notranslate nohighlight">\(T \equiv C_w (\tau_c + U/k_b)/(\rho g)\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kb</strong> (<em>float</em>) – erodability [m/yr/Pa^-a]</p></li>
+<li><p><strong>tauc</strong> (<em>float</em>) – critical shear stress [Pa]</p></li>
+<li><p><strong>Cw</strong> (<em>float</em>) – constant for Turowski channel width formula [?]</p></li>
+<li><p><strong>U</strong> (<em>float</em>) – uplift rate [m/s]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(T\)</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.fS">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">fS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zs</span></em>, <em class="sig-param"><span class="n">zm</span></em>, <em class="sig-param"><span class="n">p</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.fS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the sill/channel slope</p>
+<p><span class="math notranslate nohighlight">\(S = (z_o - z_m)/L\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zs</strong> (<em>float</em>) – sill level [m]</p></li>
+<li><p><strong>zm</strong> (<em>float</em>) – Mediterranean level [m]</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – Param object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(S\)</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.zsdot">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">zsdot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zs</span></em>, <em class="sig-param"><span class="n">zm</span></em>, <em class="sig-param"><span class="n">p</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.zsdot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the time derivative of the sill level</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zs</strong> (<em>float</em>) – sill level [m]</p></li>
+<li><p><strong>zm</strong> (<em>float</em>) – Mediterranean level [m]</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – Param object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(dz_s/dt\)</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.zmdot">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">zmdot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zs</span></em>, <em class="sig-param"><span class="n">zm</span></em>, <em class="sig-param"><span class="n">p</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.zmdot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the time derivative of the Mediterranean level</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zs</strong> (<em>float</em>) – sill level [m]</p></li>
+<li><p><strong>zm</strong> (<em>float</em>) – Mediterranean level [m]</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – Param object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(dz_m/dt\)</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.trajectory">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">trajectory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">tint</span><span class="o">=</span><span class="default_value">100.0</span></em>, <em class="sig-param"><span class="n">zs0</span><span class="o">=</span><span class="default_value">- 60.0</span></em>, <em class="sig-param"><span class="n">zm0</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'LSODA'</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-07</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrates the model, using the set of parameters specified in a Param object. It’s important to remember that the <cite>tint</cite> keyword variable has units of kyr, for convenience.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> – Param object</p></li>
+<li><p><strong>tint</strong> – integration time [kyr]</p></li>
+<li><p><strong>zs0</strong> – initial sill level</p></li>
+<li><p><strong>zm0</strong> – initial Mediterranean level</p></li>
+<li><p><strong>method</strong> – integration algorithm for scipy.integrate.solve_ivp</p></li>
+<li><p><strong>tol</strong> – tolerance value for scipy.integrate.solve_ivp</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dictionary with <cite>t</cite>, <cite>zs</cite>, <cite>zm</cite>, and <cite>zo</cite> keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="plotting-functions">
+<h1>Plotting Functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="msc_gcv.plot">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">legend</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">tint</span><span class="o">=</span><span class="default_value">100.0</span></em>, <em class="sig-param"><span class="n">zs0</span><span class="o">=</span><span class="default_value">- 60.0</span></em>, <em class="sig-param"><span class="n">zm0</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'LSODA'</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-07</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a trajectory. It’s important to remember that the <cite>tint</cite> keyword variable has units of kyr, for convenience.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – either a trajectory dictionary or a Param object</p></li>
+<li><p><strong>ax</strong> – an existing Axes object to plot in, if desired</p></li>
+<li><p><strong>legend</strong> – whether to show a legend</p></li>
+<li><p><strong>tint</strong> – integration time [kyr]</p></li>
+<li><p><strong>zs0</strong> – initial sill level [m]</p></li>
+<li><p><strong>zm0</strong> – initial Mediterranean level [m]</p></li>
+<li><p><strong>method</strong> – ODE integration method</p></li>
+<li><p><strong>tol</strong> – default tolerance for ODE integrator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Axes object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="msc_gcv.plot_phase">
+<code class="sig-prename descclassname">msc_gcv.</code><code class="sig-name descname">plot_phase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">legend</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">'nipy_spectral'</span></em>, <em class="sig-param"><span class="n">tint</span><span class="o">=</span><span class="default_value">100.0</span></em>, <em class="sig-param"><span class="n">zs0</span><span class="o">=</span><span class="default_value">- 60.0</span></em>, <em class="sig-param"><span class="n">zm0</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'LSODA'</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-07</span></em><span class="sig-paren">)</span><a class="headerlink" href="#msc_gcv.plot_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a trajectory as a phase portrait. It’s important to remember that the <cite>tint</cite> keyword variable has units of kyr, for convenience.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – either a trajectory dictionary or a Param object</p></li>
+<li><p><strong>ax</strong> – an existing Axes object to plot in, if desired</p></li>
+<li><p><strong>legend</strong> – whether to show a legend</p></li>
+<li><p><strong>cmap</strong> – colormap name</p></li>
+<li><p><strong>tint</strong> – integration time [kyr]</p></li>
+<li><p><strong>zs0</strong> – initial sill level [m]</p></li>
+<li><p><strong>zm0</strong> – initial Mediterranean level [m]</p></li>
+<li><p><strong>method</strong> – ODE integration method</p></li>
+<li><p><strong>tol</strong> – default tolerance for ODE integrator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Axes object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><cite>msc_gcv</cite></a></li>
+<li><a class="reference internal" href="#physical-constants">Physical Constants</a></li>
+<li><a class="reference internal" href="#parameter-class">Parameter Class</a></li>
+<li><a class="reference internal" href="#model-functions-equations">Model Functions/Equations</a></li>
+<li><a class="reference internal" href="#plotting-functions">Plotting Functions</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">msc_gcv 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><cite>msc_gcv</cite></a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Mark Baum.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>

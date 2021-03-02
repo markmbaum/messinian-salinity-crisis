@@ -1,0 +1,125 @@
+\hypertarget{linalg_8h}{}\doxysection{src/linalg.h File Reference}
+\label{linalg_8h}\index{src/linalg.h@{src/linalg.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{linalg_8h_aee79dd16223fd346459fab316ba876f7}{crout\+\_\+forw\+\_\+sub}} (double $\ast$$\ast$L, double $\ast$b, int $\ast$p, int n, double $\ast$out)
+\begin{DoxyCompactList}\small\item\em Crout forward substitution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{linalg_8h_aa8c4c1151e57c14814859725a3bc8036}{back\+\_\+sub}} (double $\ast$$\ast$U, double $\ast$b, int n, double $\ast$out)
+\begin{DoxyCompactList}\small\item\em Backward substitution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{linalg_8h_a7a858b60f74455c1ce562ac96520ac5a}{crout\+\_\+\+LU}} (double $\ast$$\ast$A, int n, int $\ast$p)
+\begin{DoxyCompactList}\small\item\em Crout LU decomposition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{linalg_8h_a1e3f281fc0ca8f99279d1e793b97ea18}{solve\+\_\+\+LU}} (double $\ast$$\ast$LU, int $\ast$p, double $\ast$b, int n, double $\ast$out)
+\begin{DoxyCompactList}\small\item\em Solves a matrix equation where the matrix has already be crout LU decomposed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{linalg_8h_aa8c4c1151e57c14814859725a3bc8036}\label{linalg_8h_aa8c4c1151e57c14814859725a3bc8036}} 
+\index{linalg.h@{linalg.h}!back\_sub@{back\_sub}}
+\index{back\_sub@{back\_sub}!linalg.h@{linalg.h}}
+\doxysubsubsection{\texorpdfstring{back\_sub()}{back\_sub()}}
+{\footnotesize\ttfamily void back\+\_\+sub (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{U,  }\item[{double $\ast$}]{b,  }\item[{int}]{n,  }\item[{double $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Backward substitution. 
+
+Performs backward substitution to solve an upper triangular matrix equation input\+: 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em U} & n by n upper triangular matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & right hand side of matrix equation U$\ast$out = b \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & dimensions of A and length of b \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & array of length n, result of substitution \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file linalg.\+cc.
+
+\mbox{\Hypertarget{linalg_8h_aee79dd16223fd346459fab316ba876f7}\label{linalg_8h_aee79dd16223fd346459fab316ba876f7}} 
+\index{linalg.h@{linalg.h}!crout\_forw\_sub@{crout\_forw\_sub}}
+\index{crout\_forw\_sub@{crout\_forw\_sub}!linalg.h@{linalg.h}}
+\doxysubsubsection{\texorpdfstring{crout\_forw\_sub()}{crout\_forw\_sub()}}
+{\footnotesize\ttfamily void crout\+\_\+forw\+\_\+sub (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{L,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{p,  }\item[{int}]{n,  }\item[{double $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Crout forward substitution. 
+
+Performs forward substitution to solve a lower triangular matrix equation where the elements on the main diagonal of the lower triangular matrix are assumed to all be 1. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em L} & n by n lower triangular matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & right hand side of matrix equation U$\ast$out = b \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & array of permutation indices from crout\+\_\+\+LU \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & dimensions of A and length of b \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & array of length n, result of substitution \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file linalg.\+cc.
+
+\mbox{\Hypertarget{linalg_8h_a7a858b60f74455c1ce562ac96520ac5a}\label{linalg_8h_a7a858b60f74455c1ce562ac96520ac5a}} 
+\index{linalg.h@{linalg.h}!crout\_LU@{crout\_LU}}
+\index{crout\_LU@{crout\_LU}!linalg.h@{linalg.h}}
+\doxysubsubsection{\texorpdfstring{crout\_LU()}{crout\_LU()}}
+{\footnotesize\ttfamily int crout\+\_\+\+LU (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{A,  }\item[{int}]{n,  }\item[{int $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Crout LU decomposition. 
+
+performs LU decomposition with partial pivoting on the matrix A and sets permutation indices in the array p, following the outline in the book\+:
+\begin{DoxyItemize}
+\item Demmel, James W. Applied numerical linear algebra. Vol. 56. Siam, 1997. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em A} & matrix of size n to decompose (overwritten) \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & size of square matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em p} & integer array loaded with permutation indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success code, which is 0 for success and 1 for failure due to singular matrix 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 27 of file linalg.\+cc.
+
+\mbox{\Hypertarget{linalg_8h_a1e3f281fc0ca8f99279d1e793b97ea18}\label{linalg_8h_a1e3f281fc0ca8f99279d1e793b97ea18}} 
+\index{linalg.h@{linalg.h}!solve\_LU@{solve\_LU}}
+\index{solve\_LU@{solve\_LU}!linalg.h@{linalg.h}}
+\doxysubsubsection{\texorpdfstring{solve\_LU()}{solve\_LU()}}
+{\footnotesize\ttfamily void solve\+\_\+\+LU (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{LU,  }\item[{int $\ast$}]{p,  }\item[{double $\ast$}]{b,  }\item[{int}]{n,  }\item[{double $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Solves a matrix equation where the matrix has already be crout LU decomposed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em LU} & crout LU decomposed matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em p} & permutation indices \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & right-\/hand side of matrix equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & size of matrix and arrays \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & solution to linear system \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file linalg.\+cc.
+

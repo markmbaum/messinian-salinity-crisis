@@ -1,0 +1,180 @@
+\hypertarget{class_msc_gcv}{}\doxysection{Msc\+Gcv Class Reference}
+\label{class_msc_gcv}\index{MscGcv@{MscGcv}}
+Inheritance diagram for Msc\+Gcv\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_msc_gcv}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_msc_gcv_abf99d367ecab7f1a4c982847cb2a94c6}\label{class_msc_gcv_abf99d367ecab7f1a4c982847cb2a94c6}} 
+\mbox{\hyperlink{class_msc_gcv_abf99d367ecab7f1a4c982847cb2a94c6}{Msc\+Gcv}} ()
+\begin{DoxyCompactList}\small\item\em constructs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a224592cc42a4381cf897e02d82edb51e}\label{class_msc_gcv_a224592cc42a4381cf897e02d82edb51e}} 
+double \mbox{\hyperlink{class_msc_gcv_a224592cc42a4381cf897e02d82edb51e}{f\+Am}} (double zm)
+\begin{DoxyCompactList}\small\item\em computes area of Mediterranean \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_aaac2a69eb50fa873972450e0d1eb9cc7}\label{class_msc_gcv_aaac2a69eb50fa873972450e0d1eb9cc7}} 
+double \mbox{\hyperlink{class_msc_gcv_aaac2a69eb50fa873972450e0d1eb9cc7}{fzo}} (double zm)
+\begin{DoxyCompactList}\small\item\em computes ocean level from Mediterranean level \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_ab52c545a348ce6b74d79306072786a30}\label{class_msc_gcv_ab52c545a348ce6b74d79306072786a30}} 
+double \mbox{\hyperlink{class_msc_gcv_ab52c545a348ce6b74d79306072786a30}{fS}} (double zs, double zm)
+\begin{DoxyCompactList}\small\item\em calculates slope when zm $>$ zs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_ae18c862cf64fd0376d782fdb6bce8ecf}\label{class_msc_gcv_ae18c862cf64fd0376d782fdb6bce8ecf}} 
+void \mbox{\hyperlink{class_msc_gcv_ae18c862cf64fd0376d782fdb6bce8ecf}{ode\+\_\+fun}} (double $\ast$solin, double $\ast$fout)
+\begin{DoxyCompactList}\small\item\em implements the system of O\+D\+Es, computing time derivatives \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_msc_gcv_a8a0905753dbf5e3fb8175e6c2cb249a7}{has\+\_\+root}} (double zslo, double zshi, double zmlo, double zmhi, double $\ast$rzs, double $\ast$rzm, int nzs=50, int nzm=50)
+\begin{DoxyCompactList}\small\item\em executes \mbox{\hyperlink{class_newton}{Newton}}\textquotesingle{}s method over a grid of points to find a fixed point \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_msc_gcv_a295f32de42c9164ce73c3dd6ddae8280}{has\+\_\+oscillation}} (double zs0=-\/60.\+0, double zm0=0.\+0, double tint=25 $\ast$\mbox{\hyperlink{msc__gcv_8h_ad994b565486746866b8ec0d9606f2894}{K\+Y\+R\+S\+EC}}, double tlim=1e8 $\ast$\mbox{\hyperlink{msc__gcv_8h_a4441ad3823da8df357864603e23e164e}{Y\+R\+S\+EC}}, double rootrate=1e-\/3/\mbox{\hyperlink{msc__gcv_8h_a4258095381060a4372f701180140366f}{M\+M\+YR}})
+\begin{DoxyCompactList}\small\item\em integrates for a very long period, checking model state after shorter intervals to determine if it is stable or oscillating \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_msc_gcv_a1c24e26ab44f53fb31a33f5de401a7e7}{index}} (double zs, double zm, double r=0.\+01)
+\begin{DoxyCompactList}\small\item\em computes the index of a point (normally a fixed point) by brute force \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_aeaa258e4110f39847fee110c37ca7f3e}\label{class_msc_gcv_aeaa258e4110f39847fee110c37ca7f3e}} 
+void \mbox{\hyperlink{class_msc_gcv_aeaa258e4110f39847fee110c37ca7f3e}{print}} ()
+\begin{DoxyCompactList}\small\item\em prints zo, zs, zm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_msc_gcv_a9bc13e1b9f8d88e857d0da8c14eba131}\label{class_msc_gcv_a9bc13e1b9f8d88e857d0da8c14eba131}} 
+double \mbox{\hyperlink{class_msc_gcv_a9bc13e1b9f8d88e857d0da8c14eba131}{kb}}
+\begin{DoxyCompactList}\small\item\em erodability \mbox{[}m/yr$\ast$\+Pa$^\wedge$a\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a1e5ef606d67007173fd84565f52d6d01}\label{class_msc_gcv_a1e5ef606d67007173fd84565f52d6d01}} 
+double \mbox{\hyperlink{class_msc_gcv_a1e5ef606d67007173fd84565f52d6d01}{tauc}}
+\begin{DoxyCompactList}\small\item\em critical shear stress \mbox{[}Pa\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a801e5b652f918a9d59937dc87f70ab6d}\label{class_msc_gcv_a801e5b652f918a9d59937dc87f70ab6d}} 
+double \mbox{\hyperlink{class_msc_gcv_a801e5b652f918a9d59937dc87f70ab6d}{Cw}}
+\begin{DoxyCompactList}\small\item\em constant for Turowski channel width formula \mbox{[}?\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a9f3074bce21b70b5029cea4d914c5788}\label{class_msc_gcv_a9f3074bce21b70b5029cea4d914c5788}} 
+double \mbox{\hyperlink{class_msc_gcv_a9f3074bce21b70b5029cea4d914c5788}{U}}
+\begin{DoxyCompactList}\small\item\em uplift rate \mbox{[}m/s\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a28492c5b0e0c118405b144c52d692675}\label{class_msc_gcv_a28492c5b0e0c118405b144c52d692675}} 
+double \mbox{\hyperlink{class_msc_gcv_a28492c5b0e0c118405b144c52d692675}{a}}
+\begin{DoxyCompactList}\small\item\em erosion exponent \mbox{[}-\/\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_ae8406a3acb332333d70e9bde5e965bae}\label{class_msc_gcv_ae8406a3acb332333d70e9bde5e965bae}} 
+double \mbox{\hyperlink{class_msc_gcv_ae8406a3acb332333d70e9bde5e965bae}{L}}
+\begin{DoxyCompactList}\small\item\em stream length \mbox{[}m\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a4d7eb40d6ef88aa12075c3319f3b3ac6}\label{class_msc_gcv_a4d7eb40d6ef88aa12075c3319f3b3ac6}} 
+double \mbox{\hyperlink{class_msc_gcv_a4d7eb40d6ef88aa12075c3319f3b3ac6}{n}}
+\begin{DoxyCompactList}\small\item\em roughness coefficient \mbox{[}s/m$^\wedge$(1/3)\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a8369077d00421332b17afc0cb2215a20}\label{class_msc_gcv_a8369077d00421332b17afc0cb2215a20}} 
+double \mbox{\hyperlink{class_msc_gcv_a8369077d00421332b17afc0cb2215a20}{P}}
+\begin{DoxyCompactList}\small\item\em precipitation rate \mbox{[}m/s\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_aa3d6d7e79b67adce76376954d791ec4d}\label{class_msc_gcv_aa3d6d7e79b67adce76376954d791ec4d}} 
+double \mbox{\hyperlink{class_msc_gcv_aa3d6d7e79b67adce76376954d791ec4d}{E}}
+\begin{DoxyCompactList}\small\item\em evaporation rate \mbox{[}m/s\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_msc_gcv_a4227b59afce4cbb6a846485711dc9de3}\label{class_msc_gcv_a4227b59afce4cbb6a846485711dc9de3}} 
+double \mbox{\hyperlink{class_msc_gcv_a4227b59afce4cbb6a846485711dc9de3}{R}}
+\begin{DoxyCompactList}\small\item\em input from non-\/\+Gibraltar rivers \mbox{[}m$^\wedge$3/s\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 63 of file msc\+\_\+gcv.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_msc_gcv_a295f32de42c9164ce73c3dd6ddae8280}\label{class_msc_gcv_a295f32de42c9164ce73c3dd6ddae8280}} 
+\index{MscGcv@{MscGcv}!has\_oscillation@{has\_oscillation}}
+\index{has\_oscillation@{has\_oscillation}!MscGcv@{MscGcv}}
+\doxysubsubsection{\texorpdfstring{has\_oscillation()}{has\_oscillation()}}
+{\footnotesize\ttfamily int Msc\+Gcv\+::has\+\_\+oscillation (\begin{DoxyParamCaption}\item[{double}]{zs0 = {\ttfamily -\/60.0},  }\item[{double}]{zm0 = {\ttfamily 0.0},  }\item[{double}]{tint = {\ttfamily 25$\ast$\mbox{\hyperlink{msc__gcv_8h_ad994b565486746866b8ec0d9606f2894}{K\+Y\+R\+S\+EC}}},  }\item[{double}]{tlim = {\ttfamily 1e8$\ast$\mbox{\hyperlink{msc__gcv_8h_a4441ad3823da8df357864603e23e164e}{Y\+R\+S\+EC}}},  }\item[{double}]{rootrate = {\ttfamily 1e-\/3/\mbox{\hyperlink{msc__gcv_8h_a4258095381060a4372f701180140366f}{M\+M\+YR}}} }\end{DoxyParamCaption})}
+
+
+
+integrates for a very long period, checking model state after shorter intervals to determine if it is stable or oscillating 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em zs0} & initial sill level \\
+\hline
+\mbox{\texttt{ in}}  & {\em zm0} & initial Mediterranean level \\
+\hline
+\mbox{\texttt{ in}}  & {\em tint} & shorter integration interval duration \\
+\hline
+\mbox{\texttt{ in}}  & {\em tlim} & total integration time limit \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootrate} & maximum magnitude of both time derivatives for assuming stationary state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+oscillation code\+: -\/1=fixed pt with sill below ocean, 0=oscillating, 1=sill above ocean, no oscillation 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file msc\+\_\+gcv.\+cc.
+
+\mbox{\Hypertarget{class_msc_gcv_a8a0905753dbf5e3fb8175e6c2cb249a7}\label{class_msc_gcv_a8a0905753dbf5e3fb8175e6c2cb249a7}} 
+\index{MscGcv@{MscGcv}!has\_root@{has\_root}}
+\index{has\_root@{has\_root}!MscGcv@{MscGcv}}
+\doxysubsubsection{\texorpdfstring{has\_root()}{has\_root()}}
+{\footnotesize\ttfamily int Msc\+Gcv\+::has\+\_\+root (\begin{DoxyParamCaption}\item[{double}]{zslo,  }\item[{double}]{zshi,  }\item[{double}]{zmlo,  }\item[{double}]{zmhi,  }\item[{double $\ast$}]{rzs,  }\item[{double $\ast$}]{rzm,  }\item[{int}]{nzs = {\ttfamily 50},  }\item[{int}]{nzm = {\ttfamily 50} }\end{DoxyParamCaption})}
+
+
+
+executes \mbox{\hyperlink{class_newton}{Newton}}\textquotesingle{}s method over a grid of points to find a fixed point 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em zslo} & lowest sill level in grid \\
+\hline
+\mbox{\texttt{ in}}  & {\em zshi} & highest sill level in grid \\
+\hline
+\mbox{\texttt{ in}}  & {\em zmlo} & lowest Med. level in grid \\
+\hline
+\mbox{\texttt{ in}}  & {\em zmhi} & highest Med. level in grid \\
+\hline
+\mbox{\texttt{ in}}  & {\em nzs} & number of evenly spaced sill levels in grid \\
+\hline
+\mbox{\texttt{ in}}  & {\em nzm} & number of evenly spaced Med. levels in grid \\
+\hline
+\mbox{\texttt{ out}}  & {\em rzs} & sill level of root or N\+AN \\
+\hline
+\mbox{\texttt{ out}}  & {\em rzm} & Med. level of root or N\+AN \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success code, zero for success 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file msc\+\_\+gcv.\+cc.
+
+\mbox{\Hypertarget{class_msc_gcv_a1c24e26ab44f53fb31a33f5de401a7e7}\label{class_msc_gcv_a1c24e26ab44f53fb31a33f5de401a7e7}} 
+\index{MscGcv@{MscGcv}!index@{index}}
+\index{index@{index}!MscGcv@{MscGcv}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily double Msc\+Gcv\+::index (\begin{DoxyParamCaption}\item[{double}]{zs,  }\item[{double}]{zm,  }\item[{double}]{r = {\ttfamily 0.01} }\end{DoxyParamCaption})}
+
+
+
+computes the index of a point (normally a fixed point) by brute force 
+
+
+\begin{DoxyItemize}
+\item \href{https://staff.ul.ie/burkem/Teaching/No\%20Cycles.pdf}{\texttt{ https\+://staff.\+ul.\+ie/burkem/\+Teaching/\+No\%20\+Cycles.\+pdf}} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em zs} & sill level of point \\
+\hline
+\mbox{\texttt{ in}}  & {\em zm} & Mediterranean level of point \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & = radius around point to integrate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+floating point approximation to point\textquotesingle{}s index (should be very nearly an integer) 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 180 of file msc\+\_\+gcv.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{msc__gcv_8h}{msc\+\_\+gcv.\+h}}\item 
+src/\mbox{\hyperlink{msc__gcv_8cc}{msc\+\_\+gcv.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,27 @@
+body {
+    margin: auto;
+    max-width: 15cm;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    background-color: white;
+    color: #282C34;
+}
+
+a {
+    display: block;
+    margin: 1cm auto;
+    max-width: 4cm;
+    max-height: 1cm;
+    padding: 0.5cm;
+    border: solid #282C34;
+    background-color: #ABB2BF;
+    color: #282C34;
+    border-radius: 1.1cm;
+    text-decoration: none;
+    font-size: 0.8cm;
+    font-weight: bold;
+}
+
+a:hover {
+    background-color: #ffc0cb;
+}

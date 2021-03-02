@@ -1,0 +1,36 @@
+\hypertarget{main__sweep_8cc}{}\doxysection{src/main\+\_\+sweep.cc File Reference}
+\label{main__sweep_8cc}\index{src/main\_sweep.cc@{src/main\_sweep.cc}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include \char`\"{}omp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}msc\+\_\+gcv.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main__sweep_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em runs a sweep over ranges of key parameters, searching for oscillatory results \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main__sweep_8cc_a3c04138a5bfe5d72780bb7e82a18e627}\label{main__sweep_8cc_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main\_sweep.cc@{main\_sweep.cc}!main@{main}}
+\index{main@{main}!main\_sweep.cc@{main\_sweep.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+runs a sweep over ranges of key parameters, searching for oscillatory results 
+
+
+\begin{DoxyItemize}
+\item sweeps over {\ttfamily kb}, {\ttfamily tauc}, {\ttfamily Cw}, {\ttfamily U}, {\ttfamily a}, and {\ttfamily L}
+\item requires two command line input arguments, the number of values for each of the varied parameters and the output directory
+\item each parameter set is tested with the {\ttfamily has\+\_\+oscillation} method of a {\ttfamily \mbox{\hyperlink{class_msc_gcv}{Msc\+Gcv}}} object 
+\end{DoxyItemize}
+
+Definition at line 19 of file main\+\_\+sweep.\+cc.
+

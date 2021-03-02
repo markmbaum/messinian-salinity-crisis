@@ -1,0 +1,33 @@
+This code is a simplified, consolidated, C++ implementation of a prior Messinian Salinity Crisis model\+:
+\begin{DoxyItemize}
+\item \href{http://www.nature.com/articles/nature10651}{\texttt{ Garcia-\/\+Castellanos, D. \& Villaseñor, A. Messinian salinity crisis regulated by competing tectonics and erosion at the Gibraltar arc. Nature 480, 359–363 (2011).}}
+\end{DoxyItemize}
+
+The equations and variables of the model are implemented in the {\ttfamily \mbox{\hyperlink{msc__gcv_8h}{msc\+\_\+gcv.\+h}}} and {\ttfamily \mbox{\hyperlink{msc__gcv_8cc}{msc\+\_\+gcv.\+cc}}} files as a class called \mbox{\hyperlink{class_msc_gcv}{Msc\+Gcv}}. The {\ttfamily \mbox{\hyperlink{linalg_8cc}{linalg.\+cc}}} and {\ttfamily \mbox{\hyperlink{newton_8cc}{newton.\+cc}}} files contain standard numerical algorithms used by the model. The {\ttfamily \mbox{\hyperlink{util_8cc}{util.\+cc}}} file has some miscellaneous useful functions. Finally, the {\ttfamily \mbox{\hyperlink{main__single_8cc}{main\+\_\+single.\+cc}}} and {\ttfamily \mbox{\hyperlink{main__sweep_8cc}{main\+\_\+sweep.\+cc}}} files are two separate driver files. They are compiled by the Makefile into {\ttfamily bin/single.\+exe} and {\ttfamily bin/sweep.\+exe}. The {\ttfamily single.\+exe} program runs a single integration of the model, writes output into the {\ttfamily out} directory, and attempts to find and display the model\textquotesingle{}s fixed point. The results of {\ttfamily single.\+exe} can be plotted with {\ttfamily scripts/plot\+\_\+out.\+py}. The {\ttfamily sweep.\+exe} file runs, in parallel, a grid of many integrations over ranges of key parameters, testing whether the model oscillates. The model runs on top of O\+DE integrators from \href{https://github.com/wordsworthgroup/libode}{\texttt{ libode}}.
+
+Basic steps to compile the code\+:
+\begin{DoxyEnumerate}
+\item download and compile \href{https://github.com/wordsworthgroup/libode}{\texttt{ libode}}
+\item copy/rename the {\ttfamily \+\_\+config.\+mk} file {\ttfamily config.\+mk}, getting rid of the leading underscore
+\item edit {\ttfamily config.\+mk} to have the proper compiler configuration and path to {\ttfamily libode}
+\item run {\ttfamily make} at the command line
+\item {\ttfamily single.\+exe} and {\ttfamily sweep.\+exe} should be present in the {\ttfamily bin} directory
+\end{DoxyEnumerate}
+
+To run {\ttfamily single.\+exe} and plot the results\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./bin/single.exe}
+\DoxyCodeLine{cd scripts}
+\DoxyCodeLine{python plot\_out.py}
+\DoxyCodeLine{cd ..}
+\end{DoxyCode}
+
+
+To run {\ttfamily sweep.\+exe}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./bin/sweep.exe N out}
+\DoxyCodeLine{cd scripts}
+\DoxyCodeLine{python slice\_sweep\_combos.py}
+\DoxyCodeLine{cd ..}
+\end{DoxyCode}
+ replacing N with the number of values to use for each varied parameter. 

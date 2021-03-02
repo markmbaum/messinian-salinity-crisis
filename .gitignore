@@ -1,0 +1,13 @@
+repos
+tex
+arch
+
+model/c++/out/*
+model/c++/obj/*
+model/c++/bin/*
+model/c++/config.mk
+
+**/__pycache__
+model/python/sphinx/_build
+
+!**/.keep

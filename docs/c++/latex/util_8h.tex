@@ -1,0 +1,37 @@
+\hypertarget{util_8h}{}\doxysection{src/util.h File Reference}
+\label{util_8h}\index{src/util.h@{src/util.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{util_8h_a452d2724d2f82cc2c17f54b388232200}\label{util_8h_a452d2724d2f82cc2c17f54b388232200}} 
+double \mbox{\hyperlink{util_8h_a452d2724d2f82cc2c17f54b388232200}{max}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em max of two numbers \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a82fe34140a419a1f19200091b808e4ad}\label{util_8h_a82fe34140a419a1f19200091b808e4ad}} 
+double \mbox{\hyperlink{util_8h_a82fe34140a419a1f19200091b808e4ad}{min}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em min of two numbers \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a63415ddb7abf5cd32eb68d35975faef5}\label{util_8h_a63415ddb7abf5cd32eb68d35975faef5}} 
+bool \mbox{\hyperlink{util_8h_a63415ddb7abf5cd32eb68d35975faef5}{is\+\_\+close}} (double a, double b, double thresh=1e-\/4)
+\begin{DoxyCompactList}\small\item\em checks if two numbers are very close to each other \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_ae839d8674b935bb005f0744054ae1840}\label{util_8h_ae839d8674b935bb005f0744054ae1840}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{util_8h_ae839d8674b935bb005f0744054ae1840}{linspace}} (double a, double b, long n)
+\begin{DoxyCompactList}\small\item\em creates an evenly spaced vector of values over a range \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a7d7cc0e07b0784611598e2842ba8bfe0}\label{util_8h_a7d7cc0e07b0784611598e2842ba8bfe0}} 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{util_8h_a7d7cc0e07b0784611598e2842ba8bfe0}{logspace}} (double a, double b, long n)
+\begin{DoxyCompactList}\small\item\em create an logarithmically spaced vector of values over a range \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a6250a2af412024a7a690f55cd75da21d}\label{util_8h_a6250a2af412024a7a690f55cd75da21d}} 
+void \mbox{\hyperlink{util_8h_a6250a2af412024a7a690f55cd75da21d}{check\+\_\+file\+\_\+write}} (const char $\ast$fn)
+\begin{DoxyCompactList}\small\item\em checks if a file can be written to \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a51292772cd6cdb417920f455f49540ec}\label{util_8h_a51292772cd6cdb417920f455f49540ec}} 
+void \mbox{\hyperlink{util_8h_a51292772cd6cdb417920f455f49540ec}{write\+\_\+double}} (const char $\ast$fn, double $\ast$a, long size)
+\begin{DoxyCompactList}\small\item\em writes a float64 vector to a binary file \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a3d8078bb49b8e4a34bca0bfaf4211f5f}\label{util_8h_a3d8078bb49b8e4a34bca0bfaf4211f5f}} 
+void \mbox{\hyperlink{util_8h_a3d8078bb49b8e4a34bca0bfaf4211f5f}{write\+\_\+double}} (const std\+::string \&fn, std\+::vector$<$ double $>$ a)
+\begin{DoxyCompactList}\small\item\em writes a float64 array to a binary file \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_ab54d088e7da44ca3cf8b934f756b9dff}\label{util_8h_ab54d088e7da44ca3cf8b934f756b9dff}} 
+void \mbox{\hyperlink{util_8h_ab54d088e7da44ca3cf8b934f756b9dff}{write\+\_\+int}} (const char $\ast$fn, int $\ast$a, long size)
+\begin{DoxyCompactList}\small\item\em writes an int array to a binary file \end{DoxyCompactList}\end{DoxyCompactItemize}

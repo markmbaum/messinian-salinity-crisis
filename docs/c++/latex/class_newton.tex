@@ -1,0 +1,191 @@
+\hypertarget{class_newton}{}\doxysection{Newton Class Reference}
+\label{class_newton}\index{Newton@{Newton}}
+
+
+\mbox{\hyperlink{class_newton}{Newton}}\textquotesingle{}s method for nonlinear systems of equations.  
+
+
+
+
+{\ttfamily \#include $<$newton.\+h$>$}
+
+Inheritance diagram for Newton\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_newton}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_newton_a91f8a29fe21e0d63205d6e9bcb5ca1cd}{Newton}} (unsigned long n)
+\begin{DoxyCompactList}\small\item\em constructs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a12782031a0e3dc0806ee5e4774d8ab35}\label{class_newton_a12782031a0e3dc0806ee5e4774d8ab35}} 
+virtual \mbox{\hyperlink{class_newton_a12782031a0e3dc0806ee5e4774d8ab35}{$\sim$\+Newton}} ()
+\begin{DoxyCompactList}\small\item\em destructs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a014236c94036021bca6672d53c197e97}\label{class_newton_a014236c94036021bca6672d53c197e97}} 
+unsigned long \mbox{\hyperlink{class_newton_a014236c94036021bca6672d53c197e97}{get\+\_\+n}} ()
+\begin{DoxyCompactList}\small\item\em gets the size of the system \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_adecd7171d2051f2d2833cb9f3af59b5c}\label{class_newton_adecd7171d2051f2d2833cb9f3af59b5c}} 
+double \mbox{\hyperlink{class_newton_adecd7171d2051f2d2833cb9f3af59b5c}{get\+\_\+tol\+\_\+\+Newton}} ()
+\begin{DoxyCompactList}\small\item\em gets the L infinity tolerance \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a17a93cd36c2f16eb8dfb7e55b5822254}\label{class_newton_a17a93cd36c2f16eb8dfb7e55b5822254}} 
+unsigned long \mbox{\hyperlink{class_newton_a17a93cd36c2f16eb8dfb7e55b5822254}{get\+\_\+iter\+\_\+\+Newton}} ()
+\begin{DoxyCompactList}\small\item\em gets iteration counter \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a8443234f0b01c964e89d352df966a017}\label{class_newton_a8443234f0b01c964e89d352df966a017}} 
+int \mbox{\hyperlink{class_newton_a8443234f0b01c964e89d352df966a017}{get\+\_\+i\+J\+LU}} ()
+\begin{DoxyCompactList}\small\item\em gets the LU decomposition interval \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_aa5bf7f811b487731d1de7932442c6021}\label{class_newton_aa5bf7f811b487731d1de7932442c6021}} 
+unsigned long \mbox{\hyperlink{class_newton_aa5bf7f811b487731d1de7932442c6021}{get\+\_\+n\+J\+LU}} ()
+\begin{DoxyCompactList}\small\item\em gets the LU decomposition counter \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a64d868cfe5a371ba47784560d1da30de}\label{class_newton_a64d868cfe5a371ba47784560d1da30de}} 
+unsigned long \mbox{\hyperlink{class_newton_a64d868cfe5a371ba47784560d1da30de}{get\+\_\+n\+\_\+solve\+\_\+\+LU}} ()
+\begin{DoxyCompactList}\small\item\em gets the LU solve counter \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a8bc669119e35b7c8f5c32b70b1d54a0b}\label{class_newton_a8bc669119e35b7c8f5c32b70b1d54a0b}} 
+bool \mbox{\hyperlink{class_newton_a8bc669119e35b7c8f5c32b70b1d54a0b}{get\+\_\+modified}} ()
+\begin{DoxyCompactList}\small\item\em gets whether modified Newtion\textquotesingle{}s is being used \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a796d671dc94ee9f015ea1038061ab8f5}\label{class_newton_a796d671dc94ee9f015ea1038061ab8f5}} 
+bool \mbox{\hyperlink{class_newton_a796d671dc94ee9f015ea1038061ab8f5}{get\+\_\+ignore\+\_\+\+J\+LU}} ()
+\begin{DoxyCompactList}\small\item\em gets whether no LU decompositions should be done \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a73bae3f14393fb48d4f647f2c0c8e9ad}\label{class_newton_a73bae3f14393fb48d4f647f2c0c8e9ad}} 
+double \mbox{\hyperlink{class_newton_a73bae3f14393fb48d4f647f2c0c8e9ad}{get\+\_\+absjacdel}} ()
+\begin{DoxyCompactList}\small\item\em gets adjustment factor for numerical jacobian \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_af5fd8e5f39f3cc3118e468863b4ca039}\label{class_newton_af5fd8e5f39f3cc3118e468863b4ca039}} 
+double \mbox{\hyperlink{class_newton_af5fd8e5f39f3cc3118e468863b4ca039}{get\+\_\+reljacdel}} ()
+\begin{DoxyCompactList}\small\item\em gets adjustment factor for numerical jacobian \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a941ee7b8253c7ff5b21322d335fa13b5}\label{class_newton_a941ee7b8253c7ff5b21322d335fa13b5}} 
+void \mbox{\hyperlink{class_newton_a941ee7b8253c7ff5b21322d335fa13b5}{set\+\_\+tol\+\_\+\+Newton}} (double tol\+\_\+\+Newton)
+\begin{DoxyCompactList}\small\item\em sets the L infinity tolerance \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a7c98085aefef48d63b70d00db3ecf136}\label{class_newton_a7c98085aefef48d63b70d00db3ecf136}} 
+void \mbox{\hyperlink{class_newton_a7c98085aefef48d63b70d00db3ecf136}{set\+\_\+iter\+\_\+\+Newton}} (unsigned long iter\+\_\+\+Newton)
+\begin{DoxyCompactList}\small\item\em sets the iteration counter \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a5d4176bca4885a0a024e51cc815fc85b}\label{class_newton_a5d4176bca4885a0a024e51cc815fc85b}} 
+void \mbox{\hyperlink{class_newton_a5d4176bca4885a0a024e51cc815fc85b}{set\+\_\+i\+J\+LU}} (int i\+J\+LU)
+\begin{DoxyCompactList}\small\item\em sets the LU decomposition interval \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_ad48f5117b64bae0cf54ec141179c9154}\label{class_newton_ad48f5117b64bae0cf54ec141179c9154}} 
+void \mbox{\hyperlink{class_newton_ad48f5117b64bae0cf54ec141179c9154}{set\+\_\+modified}} (bool modified)
+\begin{DoxyCompactList}\small\item\em sets whether modified Newtion\textquotesingle{}s is being used \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_ae4e9cebc2465f14ae284b07e2d79cda2}\label{class_newton_ae4e9cebc2465f14ae284b07e2d79cda2}} 
+void \mbox{\hyperlink{class_newton_ae4e9cebc2465f14ae284b07e2d79cda2}{set\+\_\+ignore\+\_\+\+J\+LU}} (bool ignore\+\_\+\+J\+LU)
+\begin{DoxyCompactList}\small\item\em sets whether no LU decompositions should be done \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a861e67325863e3dd530a3fb2ce4ebe2f}\label{class_newton_a861e67325863e3dd530a3fb2ce4ebe2f}} 
+void \mbox{\hyperlink{class_newton_a861e67325863e3dd530a3fb2ce4ebe2f}{set\+\_\+absjacdel}} (double absjacdel)
+\begin{DoxyCompactList}\small\item\em sets adjustment factor for numerical jacobian \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_newton_a108c7667c922d664e164d25991658701}\label{class_newton_a108c7667c922d664e164d25991658701}} 
+void \mbox{\hyperlink{class_newton_a108c7667c922d664e164d25991658701}{set\+\_\+reljacdel}} (double rbsjacdel)
+\begin{DoxyCompactList}\small\item\em sets adjustment factor for numerical jacobian \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_newton_a9a2b043f6144bf47ff5abd64dafdcc6d}{solve\+\_\+\+Newton}} (double $\ast$x)
+\begin{DoxyCompactList}\small\item\em Solve the system of equations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_newton_ab9da2e076a262e1c0c1bf28a5b29c680}{f\+\_\+\+Newton}} (double $\ast$x, double $\ast$f)=0
+\begin{DoxyCompactList}\small\item\em evaluates the function being zeroed \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_newton_a71d2e1eb13dd7732eb94ee0d8aa48fc2}{J\+\_\+\+Newton}} (double $\ast$x, double $\ast$$\ast$J)
+\begin{DoxyCompactList}\small\item\em evaluates the Jacobian matrix of the function being zeroed \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_newton}{Newton}}\textquotesingle{}s method for nonlinear systems of equations. 
+
+This class implements \mbox{\hyperlink{class_newton}{Newton}}\textquotesingle{}s method for nonlinear systems of equations. The virtual functions F\+\_\+\+Newton and Jac\+\_\+\+Newton allow a derived class to implement the system of equations and its Jacobian matrix. 
+
+Definition at line 16 of file newton.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_newton_a91f8a29fe21e0d63205d6e9bcb5ca1cd}\label{class_newton_a91f8a29fe21e0d63205d6e9bcb5ca1cd}} 
+\index{Newton@{Newton}!Newton@{Newton}}
+\index{Newton@{Newton}!Newton@{Newton}}
+\doxysubsubsection{\texorpdfstring{Newton()}{Newton()}}
+{\footnotesize\ttfamily Newton\+::\+Newton (\begin{DoxyParamCaption}\item[{unsigned long}]{n }\end{DoxyParamCaption})}
+
+
+
+constructs 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & size of system \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file newton.\+cc.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_newton_ab9da2e076a262e1c0c1bf28a5b29c680}\label{class_newton_ab9da2e076a262e1c0c1bf28a5b29c680}} 
+\index{Newton@{Newton}!f\_Newton@{f\_Newton}}
+\index{f\_Newton@{f\_Newton}!Newton@{Newton}}
+\doxysubsubsection{\texorpdfstring{f\_Newton()}{f\_Newton()}}
+{\footnotesize\ttfamily virtual void Newton\+::f\+\_\+\+Newton (\begin{DoxyParamCaption}\item[{double $\ast$}]{x,  }\item[{double $\ast$}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+evaluates the function being zeroed 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & current values of system \\
+\hline
+\mbox{\texttt{ out}}  & {\em f} & evaluated system of equation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_newton_a71d2e1eb13dd7732eb94ee0d8aa48fc2}\label{class_newton_a71d2e1eb13dd7732eb94ee0d8aa48fc2}} 
+\index{Newton@{Newton}!J\_Newton@{J\_Newton}}
+\index{J\_Newton@{J\_Newton}!Newton@{Newton}}
+\doxysubsubsection{\texorpdfstring{J\_Newton()}{J\_Newton()}}
+{\footnotesize\ttfamily void Newton\+::\+J\+\_\+\+Newton (\begin{DoxyParamCaption}\item[{double $\ast$}]{x,  }\item[{double $\ast$$\ast$}]{J }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+evaluates the Jacobian matrix of the function being zeroed 
+
+Unless implemented by the derived class the Jacobian will be estimated with a hasty finite differences algorithm 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & current values of system \\
+\hline
+\mbox{\texttt{ out}}  & {\em J} & evaluated Jacobian of the system \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file newton.\+cc.
+
+\mbox{\Hypertarget{class_newton_a9a2b043f6144bf47ff5abd64dafdcc6d}\label{class_newton_a9a2b043f6144bf47ff5abd64dafdcc6d}} 
+\index{Newton@{Newton}!solve\_Newton@{solve\_Newton}}
+\index{solve\_Newton@{solve\_Newton}!Newton@{Newton}}
+\doxysubsubsection{\texorpdfstring{solve\_Newton()}{solve\_Newton()}}
+{\footnotesize\ttfamily int Newton\+::solve\+\_\+\+Newton (\begin{DoxyParamCaption}\item[{double $\ast$}]{x }\end{DoxyParamCaption})}
+
+
+
+Solve the system of equations. 
+
+Solve for a root of the function f\+\_\+\+Newton using the jacobian J\+\_\+\+Newton, both of which must be implemented in derived classes 
+\begin{DoxyParams}{Parameters}
+{\em x} & initial guess for the root and final value at root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success code, which takes values 0. success!
+\begin{DoxyEnumerate}
+\item failure...singular matrix encountered
+\item failure...too many iterations
+\item failure...solution contains nan(s)
+\item failure...solution contains inf(s) 
+\end{DoxyEnumerate}
+\end{DoxyReturn}
+
+
+Definition at line 111 of file newton.\+cc.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{newton_8h}{newton.\+h}}\item 
+src/\mbox{\hyperlink{newton_8cc}{newton.\+cc}}\end{DoxyCompactItemize}
