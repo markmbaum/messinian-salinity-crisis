@@ -18,10 +18,13 @@ cmap_name = 'Blues_r'
 land_color = 'grey'
 
 #output file path
-fnout = join('..', 'plots', 'bathymetry.png')
+fnout = join('..', 'plots', 'bathymetry')
 
 #earth's radius [m]
 R = 6.371e6
+
+#saved figure formats
+fmts = ['png', 'ps', 'svg', 'pdf']
 
 #-------------------------------------------------------------------------------
 # FUNCTIONS
@@ -59,7 +62,6 @@ y = linspace(
 
 #find approximate horizontal distance represented by a pixel
 dx = (x[1] - x[0])*(pi/180)*R
-print(dx, dx*len(x))
 
 #read the bathymetry data
 bath = genfromtxt(fn, delimiter=' ', skip_header=6)
@@ -69,7 +71,7 @@ bath *= -1
 bath[bath > 0] = nan
 
 #generate the colorscale
-cmap = get_cmap(cmap_name)
+cmap = get_cmap(cmap_name).copy()
 cmap.set_bad(land_color)
 
 #make the plot
@@ -99,5 +101,8 @@ sb = ScaleBar(dx, 'km',
 ax.add_artist(sb)
 
 fig.tight_layout()
-fig.savefig(fnout)
-#plt.show()
+for fmt in fmts:
+    fn = fnout + '.' + fmt
+    print('saving figure:', fn)
+    fig.savefig(fn, format=fmt)
+plt.show()

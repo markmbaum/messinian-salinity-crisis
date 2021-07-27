@@ -45,5 +45,9 @@ axb.plot(100*(hyp - fA(z, *popt))/hyp, z, 'r')
 axb.set_xlabel('Residual (%)')
 axb.set_yticklabels([])
 fig.tight_layout()
-fig.savefig(fnout)
+p = join('..', '..', 'plots', 'mediterranean_area_fit')
+for fmt in ['png', 'ps', 'svg', 'pdf']:
+    fn = p + '.' + fmt
+    print('saving figure:', fn)
+    plt.savefig(fn, format=fmt)
 plt.show()

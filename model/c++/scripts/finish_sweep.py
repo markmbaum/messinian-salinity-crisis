@@ -26,7 +26,7 @@ for col, dtype in zip(df.columns, df.dtypes):
         df[col].values.astype('float32').tofile(join(dirout, col))
 
 #delete the big csv
-remove(fntrials)
-print('removed file: %s' % fntrials)
+#remove(fntrials)
+#print('removed file: %s' % fntrials)
 
 print('finished')

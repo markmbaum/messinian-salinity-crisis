@@ -54,16 +54,20 @@ def isim(k, x):
     else:
         return(x)
 
-def savefig(fig, fn):
-    fig.savefig(fn)
-    print('figure saved: %s' % fn)
+def savefig(fig, path):
+    for fmt in ['png', 'ps', 'svg', 'pdf']:
+        fn = path + '.' + fmt
+        print('saving figure:', fn)
+        fig.savefig(fn, format=fmt)
 
 #-------------------------------------------------------------------------------
 # MAIN
 
 #read the parameter columns
+print('reading parameter columns')
 p = {col:fromfile(join(dirout, col), dtype='float32') for col in cols}
 #read the classification column
+print('reading trial classifications')
 c = fromfile(join(dirout, 'classification'), dtype='int8')
 
 #oscillatory results
@@ -80,6 +84,7 @@ for k in ('tauc', 'kb'):
     plot(param, tint=1e3)
     show()
 
+print('plotting oscillation histograms')
 #histogram of oscillatory results for each param
 fig, axs = plt.subplots(2, 3)
 axs = list(axs[0,:]) + list(axs[1,:])
@@ -101,11 +106,16 @@ for k,ax in zip(p,axs):
 fig.tight_layout()
 savefig(fig, join(dirplot, 'oscillatory_hists'))
 
+print('plotting oscillatory examples')
 fig, axs = plt.subplots(10, 1, figsize=(7.5, 8))
 param = Param()
 #get a group of random oscillatory solutions
 idx = nonzero(m)[0]
 idx = idx[random.randint(0, len(idx), len(axs))]
+idx[-3] = 57511979 #this was originally random but needs to be fixed for the manuscript
+print('trial indices:')
+for i,j in enumerate(idx):
+    print('    %2d) %d' % (i+1,j))
 for i in range(len(axs)):
     ax = axs[i]
     #pick a random oscillatory solution and set parameter values
@@ -122,3 +132,5 @@ for i in range(len(axs)):
 axs[-1].set_xlabel('Time (kyr)')
 fig.tight_layout()
 savefig(fig, join(dirplot, 'oscillatory_examples'))
+
+plt.show()
