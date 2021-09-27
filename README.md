@@ -13,4 +13,4 @@ The original model code was recently made available [here](https://github.com/da
 
 My paper argues that the original model in the 2011 Nature paper is
 1. **Irreproducible**. Starting from the same physical assumptions, the main results of the previous modeling cannot be produced.
-2. **Incorrect**. It assumes a relationship between channel slope and Mediterranean sea-level that cannot be justified. Without this erroneous assumption, the main results of the paper, Mediterranean sea-level limit cycles, are probably impossible.
+2. **Incorrect**. It assumes a relationship between channel slope and Mediterranean sea-level that cannot be justified. Without this erroneous assumption, the main results of the paper (Mediterranean sea-level limit cycles) are probably impossible.
